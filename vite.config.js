@@ -10,6 +10,7 @@ export default defineConfig({
       "@": resolve("src")
     }
   },
+  base: '../', // 设置打包路径
   plugins: [
     vue(),
     vueJsx(),
