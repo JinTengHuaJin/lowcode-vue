@@ -27,7 +27,7 @@ const add2 = () => {
 </script>
 
 <template>
-  home use
+  home use jjjj
   <router-view></router-view>
 </template>
 <style lang="less">
