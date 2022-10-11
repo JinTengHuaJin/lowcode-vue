@@ -31,4 +31,3 @@ const add2 = () => {
    <button @click="mainStore.addAmount(3)">mainStore.addAmount(3)</button>
    <p>name:{{ mainStore.name }}</p>
  </div>
- 
