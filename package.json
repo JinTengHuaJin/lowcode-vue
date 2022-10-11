@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "lint": "eslint --ext .ts,.tsx,vue src/** --no-error-on-unmatched-pattern --quiet",
     "lint:fix": "eslint --ext .ts,.tsx,vue src/** --no-error-on-unmatched-pattern --quiet --fix",
     "prepare": "husky install"
@@ -40,6 +40,7 @@
     "vue-tsc": "^0.40.4"
   },
   "dependencies": {
+    "axios": "^1.1.2",
     "element-plus": "^2.2.15",
     "pinia": "^2.0.21",
     "vue": "^3.2.37",

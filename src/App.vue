@@ -12,10 +12,10 @@ const mainStore = useMainStore()
 const { count: storeCount } = storeToRefs(mainStore)
 const add = () => {
   //适合多字段改变
-  mainStore.$patch({
-    name: "arch",
-    count: mainStore.count + 1
-  })
+  // mainStore.$patch({
+  //   name: "arch",
+  //   count: mainStore.count + 1
+  // })
 }
 const add2 = () => {
   //适合多字段改变
