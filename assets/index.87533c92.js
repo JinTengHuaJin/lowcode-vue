@@ -1,0 +1,1 @@
+import{d as o,c as e,r as n}from"./index.7533fbb1.js";const d=o({name:"HelloWorld",setup(r,{emit:s,slots:t}){return()=>e("div",{class:"workbench-section"},[e("div",{class:"header-editor-container"},[e(n("headerUse"),null,null)])])}});export{d as default};
