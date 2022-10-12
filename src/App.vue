@@ -1,41 +1,49 @@
-<script setup lang="ts">
-import { ref } from "vue"
-import HelloWorld from "./components/HelloWorld"
-import msg from "./msg"
-import { Home } from "./views"
+<template>
+  <div class="wrapper flex flex-row w-full transition-all duration-500 ease-in-out">
+    <div ref="sider"
+      class="layout-sider-transition transition-all duration-500 ease-in-out h-full bg-white relative w-60"
+      :class="isCollapse ? ['layout-sider-collapsed', 'w-16', 'bg-white', 'shadow'] : 'layout-sider relative'"
+    >
+      <navMenu/>
+    </div>
+    <div class="monitor-layout flex flex-col flex-auto bg-info-light-9 h-full overflow-hidden">
+      <div class="layout-header h-16 leading-16 flex-initial p-0">
+        <monitorHeader @trigger="changeCollapse" :isCollapse="isCollapse"></monitorHeader>
+      </div>
+      <div class="layout-content flex-auto overflow-auto">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
+</template>
 
-import { useMainStore } from "@/store"
-import { storeToRefs } from "pinia"
-defineProps<{ msg: string }>()
-const count = ref(0)
-const mainStore = useMainStore()
-const { count: storeCount } = storeToRefs(mainStore)
-const add = () => {
-  //适合多字段改变
-  // mainStore.$patch({
-  //   name: "arch",
-  //   count: mainStore.count + 1
-  // })
-}
-const add2 = () => {
-  //适合多字段改变
-  mainStore.$patch((state) => ({
-    name: "arch2",
-    count: mainStore.count + 2
-  }))
-}
+<script lang="ts">
+import { defineComponent, computed } from 'vue'
+import navMenu from "@/components/navMenu/index.vue"
+import monitorHeader from "@/components/monitorHeader/index.vue"
+import { useMainStore } from '@/store/common'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    navMenu,
+    monitorHeader
+  },
+  setup() {
+    const commonStore = useMainStore()
+    return {
+      isCollapse: computed(() => commonStore.siderIsCollapse),
+      changeCollapse: () => commonStore.setCollapse(false)
+    }
+  }
+})
 </script>
 
-<template>
-  home use jjjj
-  <router-view></router-view>
-</template>
 <style lang="less">
-html,
-body,
-#app {
+.wrapper {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  .el-menu {
+    border-right: none;
+  }
 }
 </style>
