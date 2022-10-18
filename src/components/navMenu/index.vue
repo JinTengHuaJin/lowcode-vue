@@ -1,16 +1,16 @@
 <template>
-<aside>
+  <aside>
     <h1 class="sider-logo" :class="{'sider-collapse': isCollapse}">
-        <i class="sider-logo-bg"></i>
-        <span v-show="!isCollapse">数据分析平台</span>
+      <!-- <i class="sider-logo-bg"></i> -->
+      <span v-show="!isCollapse">DEMO展示平台</span>
     </h1>
     <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse">
-        <el-menu-item index="1">
-            <i class="el-icon-menu"></i>
-            <template #title>数据分析平台</template>
-        </el-menu-item>
+      <el-menu-item index="1">
+        <i class="el-icon-menu"></i>
+        <template #title>ANTV X6</template>
+      </el-menu-item>
     </el-menu>
-</aside>
+  </aside>
 </template>
 
 <script>

@@ -10,7 +10,7 @@
       <div class="layout-header h-16 leading-16 flex-initial p-0">
         <monitorHeader @trigger="changeCollapse" :isCollapse="isCollapse"></monitorHeader>
       </div>
-      <div class="layout-content flex-auto overflow-auto">
+      <div class="flex-auto overflow-auto p-8">
         <router-view></router-view>
       </div>
     </div>

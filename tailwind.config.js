@@ -112,6 +112,10 @@ module.exports = {
         },
       },
       spacing: {
+        sm: '8px',
+        md: '12px',
+        lg: '16px',
+        xl: '24px',
         '150': pxToRem(600),
         '300': pxToRem(1200),
       },

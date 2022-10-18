@@ -18,8 +18,8 @@ export default defineComponent({
     return () => {
       return (
         <div class="workbench-section">
-          <div class="header-editor-container">
-            <headerUse/>
+          <div style={{ height: '1200px'}} class="header-editor-container h-100 bg-gray-700">
+            home
           </div>
         </div>
       )
