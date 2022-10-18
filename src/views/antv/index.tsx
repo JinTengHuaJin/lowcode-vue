@@ -6,20 +6,19 @@ import {
   ButtonHTMLAttributes,
   watch
 } from "vue"
+import "./index.less";
 
 export default defineComponent({
-  name: "header",
-  props: {
-    text: String
-  },
+  name: "antv",
   setup(props, { 
     emit,
-    slots
+    slots 
   }) {
     return () => {
       return (
-        <div>
-          header
+        <div class="strategic-canvas">
+          <section class="left">
+          </section>
         </div>
       )
     }

@@ -4,8 +4,8 @@
       <!-- <i class="sider-logo-bg"></i> -->
       <span v-show="!isCollapse">DEMO展示平台</span>
     </h1>
-    <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse">
-      <el-menu-item index="1">
+    <el-menu :router="true" default-active="antv" class="el-menu-vertical-demo" :collapse="isCollapse">
+      <el-menu-item index="antv" default-active="antv">
         <i class="el-icon-menu"></i>
         <template #title>ANTV X6</template>
       </el-menu-item>

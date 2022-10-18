@@ -2,9 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } 
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/home",
-    name: "home",
-    component: () => import("@/views/home")
+    path: "/antv",
+    name: "antv",
+    component: () => import("@/views/antv")
   }
 ]
 
