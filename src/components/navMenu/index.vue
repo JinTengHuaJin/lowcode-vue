@@ -1,7 +1,6 @@
 <template>
   <aside>
     <h1 class="sider-logo" :class="{'sider-collapse': isCollapse}">
-      <!-- <i class="sider-logo-bg"></i> -->
       <span v-show="!isCollapse">DEMO展示平台</span>
     </h1>
     <el-menu :router="true" default-active="antv" class="el-menu-vertical-demo" :collapse="isCollapse">
@@ -19,10 +18,10 @@ import { useMainStore } from '@/store/common'
 
 export default defineComponent({
     setup() {
-        const commonStore = useMainStore();
-        return {
-          isCollapse: computed(() => commonStore.siderIsCollapse)
-        };
+      const commonStore = useMainStore();
+      return {
+        isCollapse: computed(() => commonStore.siderIsCollapse)
+      };
     },
 });
 </script>
