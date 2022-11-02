@@ -7,7 +7,10 @@ import { resolve } from 'path'
 export default defineConfig({
   resolve: {
     alias: {
-      "@": resolve("src")
+      "@": resolve("src"),
+      '@antv/x6': resolve('node_modules/@antv/x6/dist/x6.js'),
+      '@antv/x6-vue-shape': resolve('node_modules/@antv/x6-vue-shape/lib/index.js'),
+      'vue': resolve('node_modules/vue/dist/vue.esm-bundler.js')
     }
   },
   base: './', // 设置打包路径
