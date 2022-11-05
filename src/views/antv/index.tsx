@@ -7,9 +7,11 @@ import {
   watch,
   onMounted
 } from "vue"
+import "@antv/x6-vue-shape";
+import { getIcon } from "@/utils";
 import "./index.less";
 import strategicMenu from "./components/strategicMenu.vue"
-import { initPicture } from "./actions";
+import { initPicture, initGraphAction } from "./actions";
 
 export default defineComponent({
   name: "antv",
@@ -20,9 +22,27 @@ export default defineComponent({
     emit,
     slots
   }) {
+    let graph: any = null;
     onMounted(() => {
-      initPicture();
-    })
+      graph = initPicture();
+      initGraphAction(graph);
+    });
+    setTimeout(() => {
+      graph.addNode({
+        id: 'header',
+        shape: "vue-shape",
+        x: 200,
+        y: 200,
+        width: 200,
+        height: 200,
+        component: "nodeComponent",
+        movable: false,
+        draggable: true,
+        data: {
+          "jjfd": 'fjfdk'
+        }
+    });
+    }, 3000)
     return () => {
       return (
         <div class="strategic-canvas">

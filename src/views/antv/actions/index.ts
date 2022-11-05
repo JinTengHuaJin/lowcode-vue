@@ -1,7 +1,22 @@
 import { Graph, Shape, DataUri } from "@antv/x6"
+import nodeDom from "../components/nodeDom";
 
 export function initPicture() {
-  new Graph({
+  ;(Graph as any).registerVueComponent(
+    "nodeComponent",
+    {
+      template: `<nodeDom></nodeDom>`,
+      data() {
+        return {}
+      },
+      methods: {},
+      components: {
+        nodeDom
+      }
+    },
+    true
+  )
+  return new Graph({
     container: document.getElementById("picture") as HTMLDivElement,
     width: 2200,
     height: 1000,
@@ -49,18 +64,10 @@ export function initPicture() {
       }
     }
   })
-  ;(Graph as any).registerVueComponent(
-    "strategyNode-component",
-    {
-      template: `<node-com></node-com>`,
-      data() {
-        return {}
-      },
-      methods: {},
-      components: {
-        nodeCom
-      }
-    },
-    true
-  )
+}
+
+export function initGraphAction(graph: any) {
+  graph.on('node:mouseenter', () => {
+    // debugger;
+  })
 }

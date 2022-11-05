@@ -7,4 +7,11 @@ function getIcon(url: string) {
   return new URL(url, import.meta.url).href;
 }
 ```
- 
+由于 import.meta.url 表示 http://localhost:port/src/utils/getIcon.ts
+所以 url 表示的是，图片先对 src/utils/getIcon 的位置
+例如：
+想获取 http://localhost:5173/src/assets/icon/clear.png
+那么无论在哪调用都是使用
+```js
+getIcon(`../assets/icon/clear.png`)
+```

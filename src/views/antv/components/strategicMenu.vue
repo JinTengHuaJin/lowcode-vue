@@ -7,7 +7,7 @@
           <li class="menu-item" v-for="subMenu in menu.children" draggable="true" :key="subMenu.type">
             <div class="menu-item-bg">
               <div class="img-content">
-                <img :src="getIcon(`../../../assets/icon/${subMenu.type}.png`)"/>
+                <img :src="getIcon(`../assets/icon/${subMenu.type}.png`)"/>
               </div>
             </div>
           </li>
@@ -26,6 +26,7 @@ import {
   ButtonHTMLAttributes,
   watch
 } from "vue"
+import { getIcon } from "@/utils";
 import { menuList, MenuItem, draggableOptions } from "./config";
 export default defineComponent({
   name: "strategicMenu",
@@ -41,9 +42,6 @@ export default defineComponent({
     }
     function start() {
       // emit('addNode')
-    }
-    function getIcon(url: string) {
-      return new URL(url, import.meta.url).href;
     }
     return {
       getIcon,
