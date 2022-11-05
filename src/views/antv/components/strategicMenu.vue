@@ -26,7 +26,7 @@ import {
   ButtonHTMLAttributes,
   watch
 } from "vue"
-import { getIcon } from "@/utils";
+import { getIcon, getAssetsFile } from "@/utils";
 import { menuList, MenuItem, draggableOptions } from "./config";
 export default defineComponent({
   name: "strategicMenu",
@@ -45,6 +45,7 @@ export default defineComponent({
     }
     return {
       getIcon,
+      getAssetsFile,
       menuList,
       start,
       end,
