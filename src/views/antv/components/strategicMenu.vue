@@ -93,6 +93,7 @@ export default defineComponent({
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
         width: 48px;
         height: 48px;
         background: #F4F8FF;

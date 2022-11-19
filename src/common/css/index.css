@@ -7,7 +7,6 @@ body,#app {
 }
 
 body {
-  min-width: 1200px;
   overflow-y: hidden;
   font-size: 12px;
   font-family: 'Helvetica Neue', 'Helvetica', 'PingFangSC-Regular', 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', Arial;

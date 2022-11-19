@@ -21,7 +21,7 @@ export default defineComponent({
   }) {
     return () => {
       return (
-        <div class="node-container">
+        <div class="node-component" data-type="addComponent">
           <img src={getIcon(`../assets/icon/clear.png`)}/>
         </div>
       )
