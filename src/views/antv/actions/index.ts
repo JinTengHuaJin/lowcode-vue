@@ -69,14 +69,13 @@ export function initPicture() {
 
 export function initGraphAction(graph: any) {
   graph.on("node:mouseenter", ({ e }) => {
-    console.log('node:mouseenter');
     let target: Writeable<HTMLElement> | null = e.target
     /**
      * 实现节点复制 到 + 添加节点的逻辑
      * cloneNode nodeCom.vue 文件 dragStart 事件中记录的 复制的起始节点
      */
     while (target) {
-      if (target?.dataset?.type === "addComponent") {
+      if (target?.dataset?.type === "add") {
         // if (graph.cloneNode) {
           // 给 + 节点，鼠标移入时，添加高亮
           ;(target.style as any) = `
@@ -88,7 +87,7 @@ export function initGraphAction(graph: any) {
         // }
         break;
       }
-      target = target!.parentNode as Writeable<HTMLElement>
+      target = target!.parentNode as Writeable<HTMLElement>;
     }
   })
   // 当鼠标移出 + 节点时，节点去除 高亮
@@ -99,7 +98,7 @@ export function initGraphAction(graph: any) {
         ;(target.style as unknown) = ``
         break
       }
-      target = target.parentNode as Writeable<HTMLElement> | null
+      target = target.parentNode as Writeable<HTMLElement> | null;
     }
   })
 }

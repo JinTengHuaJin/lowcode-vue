@@ -43,11 +43,15 @@ export default defineComponent({
         }
     });
     }, 3000)
+    function addNode(type: string) {
+      debugger
+      console.log(type, 'addNode');
+    }
     return () => {
       return (
         <div class="strategic-canvas">
           <section class="left">
-            <strategicMenu/>
+            <strategicMenu onAddNode={addNode}/>
           </section>
           <section class="right">
             <div ref="picture" class="picture" id="picture"></div>

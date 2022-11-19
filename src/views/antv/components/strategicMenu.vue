@@ -7,11 +7,11 @@
         :sort="false"
         :list="menu.children"
         class="item-list"
-        @start="() => {}"
-        @end="() => {}">
+        @start="onStart"
+        @end="onEnd">
         <template #item="{ element }">
-          <section>
-            <li class="menu-item" :key="element.type">
+          <section :data-type="element.type">
+            <li class="menu-item">
               <div class="menu-item-bg">
                 <div class="img-content">
                   <img :src="getIcon(`../assets/icon/${element.type}.png`)"/>
@@ -48,19 +48,19 @@ export default defineComponent({
     emit,
     slots
   }) {
-    function end(evt: any, e: any) {
-      console.log(evt, e, 'evt, e');
-      // emit('addNode')
+    function onEnd(evt: any, e: any) {
+      debugger
+      emit('addNode', evt.item.dataset.type)
     }
-    function start() {
-      // emit('addNode')
+    function onStart(evt: any, e: any) {
+      // emit('addNode', evt.item.dataset.type)
     }
     return {
       getIcon,
       getAssetsFile,
       menuList,
-      start,
-      end,
+      onStart,
+      onEnd,
       drag: false,
       myArray: [],
       element: {
@@ -88,7 +88,7 @@ export default defineComponent({
     text-align: left;
   }
 
-  /deep/.item-list {
+  .item-list {
     display: flex;
     width: fit-content;
     flex-wrap: wrap;
