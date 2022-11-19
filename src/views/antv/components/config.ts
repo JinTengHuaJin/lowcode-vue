@@ -35,17 +35,6 @@ export const frequencyTypeOptions:Array<SelectItem> = [
   { key: 2, value: '每天' }
 ]
 
-export const draggableOptions: any = {
-  preventOnFilter: false,
-  sort: false,
-  disabled: false,
-  ghostClass: 'tt',
-  // 不使用H5原生的配置
-  forceFallback: true,
-  // 拖拽的时候样式
-  fallbackClass: 'flow-node-draggable'
-}
-
 export const pushDataInit = {
     frequencyType: 1,
     frequencyTypeStart: 1, // 开始节点中频次控制类型

@@ -27,6 +27,7 @@ specifiers:
   postcss: ^8.4.17
   prettier: ^2.7.1
   sass: ^1.54.6
+  sortablejs: ^1.15.0
   tailwindcss: ^3.1.8
   typescript: ^4.8.2
   vite: ^3.0.9
@@ -34,6 +35,7 @@ specifiers:
   vue: ^3.2.37
   vue-router: ^4.1.5
   vue-tsc: ^0.40.4
+  vuedraggable: ^4.1.0
 
 dependencies:
   '@antv/x6': 1.34.5
@@ -42,8 +44,10 @@ dependencies:
   axios: 1.1.2
   element-plus: 2.2.15_vue@3.2.37
   pinia: 2.0.21_typescript@4.8.2+vue@3.2.37
+  sortablejs: 1.15.0
   vue: 3.2.37
   vue-router: 4.1.5_vue@3.2.37
+  vuedraggable: 4.1.0_vue@3.2.37
 
 devDependencies:
   '@commitlint/cli': 17.1.2
@@ -4706,6 +4710,14 @@ packages:
       babel-code-frame: 6.26.0
     dev: true
 
+  /sortablejs/1.14.0:
+    resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
+    dev: false
+
+  /sortablejs/1.15.0:
+    resolution: {integrity: sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==}
+    dev: false
+
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -5371,6 +5383,15 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
+    dev: false
+
+  /vuedraggable/4.1.0_vue@3.2.37:
+    resolution: {integrity: sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      sortablejs: 1.14.0
+      vue: 3.2.37
     dev: false
 
   /webpack-merge/4.2.2:

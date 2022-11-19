@@ -2,35 +2,47 @@
   <div class="strategic-menu">
     <div v-for="menu in menuList" :key="menu.type" class="menu">
       <p class="menu-title">{{ menu.type }}</p>
-      <ul class="item-list">
-        <section style="width: 100%">
-          <li class="menu-item" v-for="subMenu in menu.children" draggable="true" :key="subMenu.type">
-            <div class="menu-item-bg">
-              <div class="img-content">
-                <img :src="getIcon(`../assets/icon/${subMenu.type}.png`)"/>
+      <draggable
+        force-fallback="true"
+        :sort="false"
+        :list="menu.children"
+        class="item-list"
+        @start="() => {}"
+        @end="() => {}">
+        <template #item="{ element }">
+          <section>
+            <li class="menu-item" :key="element.type">
+              <div class="menu-item-bg">
+                <div class="img-content">
+                  <img :src="getIcon(`../assets/icon/${element.type}.png`)"/>
+                </div>
               </div>
-            </div>
-          </li>
-        </section>
-      </ul>
+            </li>
+          </section>
+          </template>
+        </draggable>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import Sortable from 'sortablejs';
 import {
   ref,
   PropType,
   CSSProperties,
   defineComponent,
   ButtonHTMLAttributes,
-  watch
+  watch,
+  onMounted
 } from "vue"
 import { getIcon, getAssetsFile } from "@/utils";
-import { menuList, MenuItem, draggableOptions } from "./config";
+import draggable from "vuedraggable";
+import { menuList, MenuItem } from "./config";
 export default defineComponent({
   name: "strategicMenu",
   components: {
+    draggable
   },
   setup(props, {
     emit,
@@ -50,7 +62,6 @@ export default defineComponent({
       start,
       end,
       drag: false,
-      draggableOptions,
       myArray: [],
       element: {
         id: 100,
@@ -77,18 +88,17 @@ export default defineComponent({
     text-align: left;
   }
 
-  .item-list {
-    & > section {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+  /deep/.item-list {
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .menu-item {
       align-items: center;
       cursor: pointer;
       justify-content: center;
       margin-bottom: 10px;
+      width: fit-content;
       .menu-item-bg {
         display: flex;
         align-items: center;
