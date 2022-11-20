@@ -1,10 +1,13 @@
 import { guid } from "@/utils"
-import { NODEQUAR, FLOORHEIGHT } from "./config"
+import { NODEQUAR, FLOORHEIGHT, STARTPOINTX, STARTPOINTY } from "./config"
+import { nodeKeyMap } from "../config"
 import { ONEBRANCH, TWOBRANCH } from "../components/config"
+// startX, startY 为根节点，刚计算后的位置坐标
+let { x: startX, y: startY } = nodeKeyMap.position
 export function addGraphNode(
   graph: any,
-  x?: number,
-  y?: number,
+  x: number,
+  y: number,
   data: any = {},
   id = ""
 ) {
@@ -12,8 +15,8 @@ export function addGraphNode(
   graph.addNode({
     id,
     shape: "vue-shape",
-    x: x,
-    y: y,
+    x: x - nodeKeyMap.position.x + STARTPOINTX,
+    y: y - nodeKeyMap.position.y + STARTPOINTY,
     width: NODEQUAR,
     height: NODEQUAR,
     component: "nodeComponent",
@@ -62,10 +65,13 @@ export function addEdge(
   let vertices = [
     // NODEWIDTH = 节点宽度  startX = 根节点 x 轴坐标  STARTPOINTX = x 轴平移距离  NODEHEIGHT = 节点高度  FLOORHEIGHT = 节点上下间距
     {
-      x: sourcePosition.x + NODEQUAR / 2,
-      y: sourcePosition.y + (NODEQUAR + FLOORHEIGHT)
+      x: sourcePosition.x + NODEQUAR / 2 - nodeKeyMap.position.x + STARTPOINTX,
+      y: sourcePosition.y + NODEQUAR +FLOORHEIGHT - nodeKeyMap.position.y + STARTPOINTY
     },
-    { x: targetPosition.x + NODEQUAR / 2, y: targetPosition.y - FLOORHEIGHT }
+    {
+      x: targetPosition.x + NODEQUAR / 2 - nodeKeyMap.position.x + STARTPOINTX,
+      y: targetPosition.y - FLOORHEIGHT - nodeKeyMap.position.y + STARTPOINTY
+    }
   ]
   graph.addEdge({
     source: sourceId,
