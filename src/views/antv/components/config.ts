@@ -8,16 +8,16 @@ export interface SelectItem {
 }
 let actionGroup = [
   'back',     'classify', 'clear',
-  'decode',   'download', 'edit',
+  'decode',   'edit',     'zan',
   'fire',     'label',    'like',
   'location', 'mes',      'next',
   'notes',    'password', 'pause',
   'personal', 'photo',    'picture',
-  'play',     'pre',      'review',
-  'search',   'set',      'share',
-  'speed',    'step',     'store',
-  'time',     'upload',   'vip',
-  'zan'
+  'review',     'pre',      
+  // 'play',
+  // 'search',   'set',      'share',
+  // 'speed',    'step',     'store',
+  // 'time',     'upload',   'vip'
 ];
 const actionGroupMid = Math.ceil(actionGroup.length / 2); // 15
 export const menuList:Array<MenuItem> = [];
@@ -35,17 +35,5 @@ export const frequencyTypeOptions:Array<SelectItem> = [
   { key: 2, value: '每天' }
 ]
 
-export const pushDataInit = {
-    frequencyType: 1,
-    frequencyTypeStart: 1, // 开始节点中频次控制类型
-    frequencyCount: '',
-    sendLimit: 1, // 发送限制
-    sendLimitInput: '', // APP
-    sendLimitUnit: 1,
-    pushApp: 'homework',
-    title: '',
-    content: '',
-    url: '',
-    imgUrl: '',
-    pushType: 1
-}
+export const ONEBRANCH = menuList[0].children!.map((item) => item.type) // 有一个分支的节点，对应执行节点
+export const TWOBRANCH = menuList[1].children!.map((item) => item.type) // 有两个分支的节点，对应条件节点

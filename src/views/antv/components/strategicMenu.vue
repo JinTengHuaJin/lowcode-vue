@@ -49,7 +49,6 @@ export default defineComponent({
     slots
   }) {
     function onEnd(evt: any, e: any) {
-      debugger
       emit('addNode', evt.item.dataset.type)
     }
     function onStart(evt: any, e: any) {
